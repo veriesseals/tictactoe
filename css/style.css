@@ -18,6 +18,8 @@ body{
     border-bottom: 5px solid #f00;
 }
 
+
+
 h1 {
     color: #fff;
     font-size: 48px;
@@ -40,9 +42,10 @@ h2 {
 }
 
 .game-board {
+
     display: grid;
     grid-template-columns: repeat(3,auto);
-    margin: 50px auto;
+    margin-top: 100px;
     width: 360px;
     /* border: 1px solid black; */
 }
@@ -86,7 +89,7 @@ button {
 }
 
 .win-count {
-    width: 90%;
+    width: 200px;
     height: 200px;
     background-color: whitesmoke;
     border: 2px solid #005a9c;

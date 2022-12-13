@@ -1,8 +1,14 @@
 class Game {
     constructor() {
+        // Grab the restart button
+        this.gameRestartBtn = document.getElementById('gameRestart');
         this.gameStatus = document.getElementById('gameStatus');
         this.xWins = document.getElementById('xWins');
         this.oWins = document.getElementById('oWins');
+        this.submitBtn = document.getElementById('submitBtn');
+        this.playerOne = document.getElementById('playerOne');
+        this.playerTwo = document.getElementById('playerTwo');
+
         // Winning count object
         this.winCount = {
             x: 0,
@@ -26,13 +32,19 @@ class Game {
             [2,4,6]
         ];
 
-        // Grab the restart button
-        this.gameRestartBtn = document.getElementById('gameRestart');
+        // Players object
+        this.players = {
+            player1: 'Player 1',
+            player2: 'Player 2'
+        }
+
     }
 
     // Method to initialize the game
     init (){
-        // this.statusDisplay();
+        this.playerOne.innerText = this.players.player1;
+        this.playerTwo.innerText = this.players.player2;
+        this.getPlayersNames();
         this.handleCellClicked();
         this.gameRestartBtn.addEventListener('click', ()=>  {
         this.restartGame();
@@ -117,6 +129,7 @@ class Game {
                 this.oWins.innerText = this.winCount.o;
             }
 
+            this.checkWinCount()
             this.gameActive = false;
             return;
         }
@@ -156,20 +169,40 @@ class Game {
         let oWinTotal = this.winCount.o;
         let xWinTotal = this.winCount.x;
 
+        console.log(this.winCount);
         if (oWinTotal == 3) {
-                // alert('X has won the game') 
-                this.gameStatus.innerHTML = `${this.winCount.x} <br> <span>Game Over X has Won!</span>`;
+            // alert('X has won the game') 
+            this.gameStatus.innerText = `${this.players.player2}'has won the game';`
 
-            } else if (xWinTotal == 3) {
-                // alert('O has won the game')
-                this.gameStatus.innerHTML = `${this.winCount.o} <br> <span>Game Over O has won!</span>`;
-            }
+        } else if (xWinTotal == 3) {
+            // alert('O has won the game')
+            this.gameStatus.innerText = `${this.players.player1}'has won the game';`
+        }
         
         this.gameActive = false;
-        this.restartGame();
+        // this.restartGame();
 
     }
 
+    getPlayersNames() {
+        const submitBtn= this.submitBtn;
+        const playerOne = this.playerOne;
+        const playerTwo = this.playerTwo;
+
+        
+        submitBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            // console.log('clicked')
+            const player1Name = document.getElementById('player1').value;
+            const player2Name = document.getElementById('player2').value;
+            // console.log(player1Name, player2Name);
+            this.players.player1 = player1Name;
+            this.players.player2 = player2Name;
+            playerOne.innerText = `${this.players.player1}: X's turn`;
+            playerTwo.innerText = `${this.players.player2}: O's turn`;
+        })
+
+    }
     
 }
 

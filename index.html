@@ -12,32 +12,69 @@
     <title>Tic Tac Toe</title>
 </head>
 <body>
+    <!-- Header -->
     <header class="header" id="header">
         <h1>tic tac toe</h1>
         <h2 class="game-status" id="gameStatus">
+            <form action="#" class="form" id="playerForm">
+                <div class="col-md-6">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Player 1 Name</span>
+                        <input type="text" maxlength="3" class="form-control" id="player1" name="player1" placeholder="Enter Player 1 Name" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
 
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon2">Player 2 Name</span>
+                        <input type="text" maxlength="3" class="form-control" id="player2" name="player1" placeholder="Enter Player 1 Name" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                </div>
+                <!-- Input -->
+                  <!--  -->
+                <!-- <div class="col-md-4">
+                    <label for="player1">Player 1:</label>
+                    <input type="text" maxlength="3" id="player1" name="player1" placeholder="Enter Player 1 Name">
+                </div> -->
+                <!-- <div class="col-md-4">
+                    <label for="player2">Player 2:</label>
+                    <input type="text" maxlength="3" id="player2" name="player2" placeholder="Enter Player 2 Name">    
+                </div> -->
+                <div class="row">
+                    <div class="col">
+                        <button class="btn btn-dark submit-btn" type="submit" id="submitBtn">submit players</button>
+                    </div>
+                    
+                </div>
+            </form>
         </h2>
     </header>
+
+    <hr>
     <!-- Boxes -->
     <main class="main" id="main">
         <section class="x-section">
-            <h2 class="wins red">x win totals</h2>
+            <h2 class="wins red" id="playerOne"></h2>
             <div class="win-count" id="xWins"></div>
-
         </section>
-        <section class="game-board" id="gameBoard">
-            <div data-cell-index="0" class="cell"></div>
-            <div data-cell-index="1" class="cell"></div>
-            <div data-cell-index="2" class="cell"></div>
-            <div data-cell-index="3" class="cell"></div>
-            <div data-cell-index="4" class="cell"></div>
-            <div data-cell-index="5" class="cell"></div>
-            <div data-cell-index="6" class="cell"></div>
-            <div data-cell-index="7" class="cell"></div>
-            <div data-cell-index="8" class="cell"></div>
-        </section>
+        <div class="row">
+            <!-- Game Board -->
+            <section class="game-board" id="gameBoard">
+                <div data-cell-index="0" class="cell"></div>
+                <div data-cell-index="1" class="cell"></div>
+                <div data-cell-index="2" class="cell"></div>
+                <div data-cell-index="3" class="cell"></div>
+                <div data-cell-index="4" class="cell"></div>
+                <div data-cell-index="5" class="cell"></div>
+                <div data-cell-index="6" class="cell"></div>
+                <div data-cell-index="7" class="cell"></div>
+                <div data-cell-index="8" class="cell"></div>
+            </section>
+            
+        </div>
+        <!-- Wins -->
         <section class="o-section">
-            <h2 class="wins blue">o win totals</h2>
+            <h2 class="wins blue" id="playerTwo"></h2>
             <div class="win-count" id="oWins"></div>
 
         </section>
